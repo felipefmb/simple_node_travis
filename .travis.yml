@@ -13,9 +13,9 @@ before_script:
 
 script:
   - docker --version 
-  - docker build -t simple_node .
-  - docker tag simple_node felipefmb/simple_node:latest
+  - docker build -t simple_node_travis .
+  - docker tag simple_node_travis felipefmb/simple_node_travis:latest
 
 after_success: 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push felipefmb/simple_node
+  - docker push felipefmb/simple_node_travis
